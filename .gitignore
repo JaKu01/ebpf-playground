@@ -1,0 +1,7 @@
+**/*.out
+**/*.o
+whitelist_private.txt
+**/.idea
+**/CMakeFiles
+**/*.cmake
+**/CMakeCache.txt

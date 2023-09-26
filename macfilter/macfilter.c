@@ -32,8 +32,9 @@ int main(int argc, char **argv)
     }
 
     /* Attach tracepoint handler */
-    err = macfilter_bpf__attach(skel);
-    if (err) {
+    struct bpf_link *link = bpf_program__attach_xdp(skel->progs.hello, 3);
+
+    if (!link) {
         fprintf(stderr, "Failed to attach BPF skeleton\n");
         goto cleanup;
     }
